@@ -11,7 +11,7 @@
 #define led_G 12      // 좌석 사용 알림 LED
 #define led_B 11      // 좌석 사용 알림 LED
 
-SoftwareSerial bluetooth(Tx, Rx);     // 블루투스 통신
+SoftwareSerial bluetooth(Rx, Tx);     // 블루투스 통신
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // LCD 접근 주소 : 0x3F or 0x27
 Adafruit_NeoPixel circle = Adafruit_NeoPixel(12, led_foot, NEO_GRB); // 8개의 LED와 제어핀 설정 
 
@@ -41,12 +41,14 @@ void loop() {
     if (value == '1') {
       LEDControl(0, 255, 0);
       LCDControl(1);   // 자리 비워주세요 < 표시
+      colorWipe(circle.Color(255, 0, 0), 500);
     }
 
     // off 버튼 눌렀을 때
     else if (value == '0') {
       LEDControl(0, 0, 0);
       LCDControl(0);   // 사용중 < 표시
+      colorWipe(circle.Color(255, 0, 0), 500);
     }
 
     delay(180000);
@@ -58,14 +60,6 @@ void LEDControl(int r, int g, int b) {
   analogWrite(led_R, r);
   analogWrite(led_G, g);
   analogWrite(led_B, b);
-
-  colorWipe(circle.Color(255, 0, 0), 50);
-
-  // 발 밑의 LED 제어
-  //for (int i = 0; i < 12; i++) {
-  //  circle.setPixelColor(i, 255, 0, 0);
-  //  circle.show();
-  //}
 }
 
 void colorWipe(uint32_t c, uint8_t wait) {
