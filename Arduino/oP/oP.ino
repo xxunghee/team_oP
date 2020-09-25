@@ -57,9 +57,9 @@ void BluetoothControl() {
 
 void LEDControl(int r, int g, int b) {
   // 머리 위의 LED 제어
-  analogWrite(LED_R, r);
-  analogWrite(LED_G, g);
-  analogWrite(LED_B, b);
+  analogWrite(led_R, r);
+  analogWrite(led_G, g);
+  analogWrite(led_B, b);
 
   // 발 밑의 LED 제어
   for (int i = 0; i < 8; i++) {
