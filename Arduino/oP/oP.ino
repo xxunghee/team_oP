@@ -7,9 +7,9 @@
 #define Tx 7        // 블루투스 송신
 #define Rx 8        // 블루투스 수신
 #define led_foot 6  // 원형 LED
-#define led_R A4      // 좌석 사용 알림 LED
-#define led_G A5      // 좌석 사용 알림 LED
-#define led_B A6      // 좌석 사용 알림 LED
+#define led_R A3      // 좌석 사용 알림 LED
+#define led_G A4      // 좌석 사용 알림 LED
+#define led_B A5      // 좌석 사용 알림 LED
 
 SoftwareSerial bluetooth(Tx, Rx);     // 블루투스 통신
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // LCD 접근 주소 : 0x3F or 0x27
