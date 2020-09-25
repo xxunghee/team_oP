@@ -26,7 +26,7 @@
 
 * Arduino
   * [김성희](https://github.com/xxunghee)
-  * [박효준](https://github.com/phj1415)
+  * [박효준](https://github.com/phj1450)
 * App
   	* [김미주](https://github.com/mijoo308)
 * Server
