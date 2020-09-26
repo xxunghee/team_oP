@@ -29,6 +29,9 @@ void setup() {
   pinMode(led_R, OUTPUT);
   pinMode(led_G, OUTPUT);
   pinMode(led_B, OUTPUT);
+
+  // 머리 위의 LED 파란색으로 초기화
+  LEDControl(HIGH, LOW, LOW);
 }
 
 void loop() {
@@ -39,28 +42,29 @@ void loop() {
 
     // on 버튼 눌렀을 때
     if (value == '1') {
-      LEDControl(0, 255, 0);
-      LCDControl(1);   // 자리 비워주세요 < 표시
+      LEDControl(LOW, HIGH, LOW); // 분홍색으로 전환 
+      LCDControl(value);
       colorWipe(circle.Color(255, 0, 0), 500);
     }
 
     // off 버튼 눌렀을 때
     else if (value == '0') {
-      LEDControl(0, 0, 0);
-      LCDControl(0);   // 사용중 < 표시
+      LEDControl(HIGH, LOW, LOW); // 파란색으로 전환 
+      LCDControl(value);
       circle.fill((0, 0, 0));
       circle.show();
     }
   }
 }
 
+// 머리 위의 LED 제어 
 void LEDControl(int r, int g, int b) {
-  // 머리 위의 LED 제어
-  analogWrite(led_R, r);
-  analogWrite(led_G, g);
-  analogWrite(led_B, b);
+  digitalWrite(led_R, r);
+  digitalWrite(led_G, g);
+  digitalWrite(led_B, b);
 }
 
+// 발판 LED 제어 
 void colorWipe(uint32_t c, uint8_t wait) {
   for (uint16_t i = 0; i < circle.numPixels(); i++) {
     circle.setPixelColor(i, c);
@@ -69,10 +73,10 @@ void colorWipe(uint32_t c, uint8_t wait) {
   }
 }
 
-
+// LCD 제어 
 void LCDControl(int i) {
   // on
-  if (i == 1) // on
+  if (i == 1)
   {
     lcd.setCursor(0, 0);
     lcd.print("give your seat");
