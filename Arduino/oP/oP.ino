@@ -43,14 +43,14 @@ void loop() {
     // on 버튼 눌렀을 때
     if (value == '1') {
       LEDControl(LOW, HIGH, LOW); // 분홍색으로 전환 
-      LCDControl(value);
+      LCDControl(1);
       colorWipe(circle.Color(255, 0, 0), 500);
     }
 
     // off 버튼 눌렀을 때
     else if (value == '0') {
       LEDControl(HIGH, LOW, LOW); // 파란색으로 전환 
-      LCDControl(value);
+      LCDControl(0);
       circle.fill((0, 0, 0));
       circle.show();
     }
