@@ -32,12 +32,12 @@ public class UserDto {
     public static class Response {
 
         private final Long id;
-        private final String username;
+        private final String name;
         private final String deliveryDate;
 
         public Response(User user) {
             id = user.getId();
-            username = user.getUsername();
+            name = user.getName();
             deliveryDate = user.getDeliveryDate();
         }
     }
