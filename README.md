@@ -1,4 +1,4 @@
-# oP / *oh! Pregnant woman*
+# oP / *only the Pregnant*
 
 ### Team Logo
 
